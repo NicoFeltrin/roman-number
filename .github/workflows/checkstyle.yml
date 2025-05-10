@@ -1,0 +1,21 @@
+name: Checkstyle report
+
+on: [push,pull_request]
+
+jobs:
+  checkstyle:  # Applica le regole di maven checkstyle (checkstyle.xml) e genera un report se è passato o no
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 24
+        uses: actions/setup-java@v3
+        with:
+          java-version: '24'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Checks with checkstyle.xml
+        run: mvn checkstyle:check

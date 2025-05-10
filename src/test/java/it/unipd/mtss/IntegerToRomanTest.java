@@ -48,7 +48,11 @@ public class IntegerToRomanTest {
                 {70, "LXX"},
                 {80, "LXXX"},
                 {90, "XC"},
-                {100, "C"}
+                {100, "C"},
+                {200, "CC"},
+                {300, "CCC"},
+                {400, "CD"},
+                {500, "D"}
         });
     }
 

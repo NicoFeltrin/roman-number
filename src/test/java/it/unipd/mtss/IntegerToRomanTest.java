@@ -27,9 +27,12 @@ public class IntegerToRomanTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-            {1, "I"},
-            {2, "II"},
-            {3, "III"},
+                {1, "I"},
+                {2, "II"},
+                {3, "III"},
+                {4, "IV"},
+                {5, "V"},
+                {6, "VI"},
         });
     }
 

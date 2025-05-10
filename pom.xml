@@ -134,7 +134,7 @@
         </executions>
       </plugin>
 
-      <!-- il report di Jacoco viene analizzato da Coveralls -->
+      <!-- il report di Jacoco viene analizzato da Coveralls --> 
       <plugin>
         <groupId>com.github.hazendaz.maven</groupId>
         <artifactId>coveralls-maven-plugin</artifactId>

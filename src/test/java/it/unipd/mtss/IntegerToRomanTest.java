@@ -5,5 +5,40 @@
 
 package it.unipd.mtss;
 
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+@RunWith(Parameterized.class)
 public class IntegerToRomanTest {
+
+    private final int input;
+    private final String expected;
+
+    public IntegerToRomanTest(int input, String expected) {
+        this.input = input;
+        this.expected = expected;
+    }
+
+    @Parameterized.Parameters
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][] {
+            {1, "I"},
+            {2, "II"},
+            {3, "III"},
+        });
+    }
+
+    @Test
+    public void testConvert() {
+        // Esegue la funzione di conversione
+        String result = IntegerToRoman.convert(input);
+
+        // Verifica se la funzione di conversione ha restituito il valore atteso
+        assertEquals(expected, result);
+    }
 }

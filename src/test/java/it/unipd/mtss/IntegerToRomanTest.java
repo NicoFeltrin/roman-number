@@ -43,7 +43,12 @@ public class IntegerToRomanTest {
                 {20, "XX"},
                 {30, "XXX"},
                 {40, "XL"},
-                {50, "L"}
+                {50, "L"},
+                {60, "LX"},
+                {70, "LXX"},
+                {80, "LXXX"},
+                {90, "XC"},
+                {100, "C"}
         });
     }
 

@@ -9,6 +9,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import static org.junit.Assert.fail;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -57,16 +58,33 @@ public class RomanPrinterTest {
                 {700, "  _____     _____    _____ \n |  __ \\   / ____|  / ____|\n | |  | | | |      | |     \n | |  | | | |      | |     \n | |__| | | |____  | |____ \n |_____/   \\_____|  \\_____|\n"},
                 {800, "  _____     _____    _____    _____ \n |  __ \\   / ____|  / ____|  / ____|\n | |  | | | |      | |      | |     \n | |  | | | |      | |      | |     \n | |__| | | |____  | |____  | |____ \n |_____/   \\_____|  \\_____|  \\_____|\n"},
                 {900, "   _____   __  __ \n  / ____| |  \\/  |\n | |      | \\  / |\n | |      | |\\/| |\n | |____  | |  | |\n  \\_____| |_|  |_|\n"},
-                {1000, "  __  __ \n |  \\/  |\n | \\  / |\n | |\\/| |\n | |  | |\n |_|  |_|\n"}
+                {1000, "  __  __ \n |  \\/  |\n | \\  / |\n | |\\/| |\n | |  | |\n |_|  |_|\n"},
+                {0, null},
+                {1001, null}
         });
     }
 
     @Test
-    public void testConvert() {
-        // Esegue la funzione di stampa
-        String result = RomanPrinter.print(input);
+    public void testClassIsInstantiable() {  // Controllo superfluo per avere il 100% di code coverage
+        try {
+            new RomanPrinter();
+        }catch (Exception e) {
+            fail("La classe RomanPrinter non puo' essere instanziata.");
+        }
+    }
 
-        // Verifica se la funzione di stampa ha restituito il valore atteso
-        assertEquals(expected, result);
+    @Test
+    public void testConvert() {
+        try {
+            // Esegue la funzione di conversione
+            String result = RomanPrinter.print(input);
+
+            // Verifica se la funzione di conversione ha restituito il valore atteso
+            assertEquals(expected, result);
+        } catch (IllegalArgumentException e) {  // Percorso che dovrebbe eseguire con i parametri 0 e 1001
+            if(expected != null) {
+                fail("Il programma non funziona correttamente con parametri garantiti. (" + input + ")");
+            }
+        }
     }
 }

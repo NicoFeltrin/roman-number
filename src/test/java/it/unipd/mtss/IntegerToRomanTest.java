@@ -40,7 +40,10 @@ public class IntegerToRomanTest {
                 {14, "XIV"},
                 {16, "XVI"},
                 {19, "XIX"},
-                {20, "XX"}
+                {20, "XX"},
+                {30, "XXX"},
+                {40, "XL"},
+                {50, "L"}
         });
     }
 
